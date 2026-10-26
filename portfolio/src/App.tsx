@@ -3,6 +3,7 @@ import { AnimatePresence } from "motion/react";
 import Window from "./components/Window";
 import FolderIcon from "./components/FolderIcon";
 import Projects from "./components/Projects";
+import SkillBubbles from "./components/SkillBubbles";
 
 type WindowId = "about" | "projects";
 
@@ -41,8 +42,15 @@ export default function App() {
             onFocus={() => bringToFront("about")}
             zIndex={openWindows.indexOf("about") + 1}
             constraintsRef={desktopRef}
+            className="about-window"
+            decorations={<SkillBubbles />}
           >
-            <p>Hi! Placeholder bio goes here.</p>
+            <div className="space-y-4 py-5">
+              <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-xl border-2 border-dashed border-ocean-600 bg-ocean-200/40 text-sm">Your photo</div>
+              <h1 className="text-center text-xl font-semibold">Hi, I'm Titan!</h1>
+              <p className="text-sm leading-relaxed">My bio will go here — a little about me, what I enjoy building, and what I'm learning.</p>
+              <p className="text-sm text-ocean-600">A few of my skills & tools</p>
+            </div>
           </Window>
         )}
         {openWindows.includes("projects") && (

@@ -9,6 +9,7 @@ type WindowProps = {
   className?: string;
   zIndex?: number;
   onFocus?: () => void;
+  decorations?: ReactNode;
 };
 
 export default function Window({
@@ -19,6 +20,7 @@ export default function Window({
   className = "",
   zIndex = 1,
   onFocus,
+  decorations,
 }: WindowProps) {
   const controls = useDragControls();
 
@@ -38,8 +40,9 @@ export default function Window({
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -80, opacity: 0 }}
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
-      className={`absolute left-1/2 top-24 -ml-40 w-80 rounded-2xl border-2 border-ink bg-ocean-50 shadow-[6px_6px_0_0_rgba(30,41,59,0.25)] ${className}`}
+      className={`absolute left-1/2 top-24 -ml-40 w-80 ${className}`}
     >
+      <div className="relative rounded-2xl border-2 border-ink bg-ocean-50 shadow-[6px_6px_0_0_rgba(30,41,59,0.25)]">
       <div
         onPointerDown={(e) => controls.start(e)}
         className="flex cursor-grab touch-none select-none items-center justify-between rounded-t-2xl border-b-2 border-ink bg-ocean-200 px-3 py-2 active:cursor-grabbing"
@@ -55,6 +58,8 @@ export default function Window({
         </button>
       </div>
       <div className="max-h-[calc(100dvh-12rem)] overflow-y-auto p-4">{children}</div>
+      </div>
+      {decorations}
     </motion.div>
   );
 }
