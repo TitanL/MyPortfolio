@@ -7,6 +7,8 @@ type WindowProps = {
   constraintsRef: RefObject<HTMLElement | null>;
   children: ReactNode;
   className?: string;
+  zIndex?: number;
+  onFocus?: () => void;
 };
 
 export default function Window({
@@ -15,11 +17,18 @@ export default function Window({
   constraintsRef,
   children,
   className = "",
+  zIndex = 1,
+  onFocus,
 }: WindowProps) {
   const controls = useDragControls();
 
   return (
     <motion.div
+      style={{ zIndex }}
+      onPointerDownCapture={onFocus}
+      onFocusCapture={onFocus}
+      role="region"
+      aria-label={title}
       drag
       dragControls={controls}
       dragListener={false} // only the title bar starts a drag
@@ -45,7 +54,7 @@ export default function Window({
           ×
         </button>
       </div>
-      <div className="p-4">{children}</div>
+      <div className="max-h-[calc(100dvh-12rem)] overflow-y-auto p-4">{children}</div>
     </motion.div>
   );
 }
