@@ -4,8 +4,9 @@ import Window from "./components/Window";
 import FolderIcon from "./components/FolderIcon";
 import Projects from "./components/Projects";
 import SkillBubbles from "./components/SkillBubbles";
+import Contact from "./components/Contact";
 
-type WindowId = "about" | "projects";
+type WindowId = "about" | "projects" | "contact";
 
 export default function App() {
   const desktopRef = useRef<HTMLDivElement>(null);
@@ -31,9 +32,23 @@ export default function App() {
       <nav aria-label="Desktop folders" className="absolute right-4 top-6 z-50 flex flex-col gap-4">
         <FolderIcon label="About me" onClick={() => bringToFront("about")} />
         <FolderIcon label="Projects" onClick={() => bringToFront("projects")} />
+        <FolderIcon label="Contact" onClick={() => bringToFront("contact")} />
       </nav>
 
       <AnimatePresence>
+        {openWindows.includes("contact") && (
+          <Window
+            key="contact"
+            title="Contact"
+            onClose={() => closeWindow("contact")}
+            onFocus={() => bringToFront("contact")}
+            zIndex={openWindows.indexOf("contact") + 1}
+            constraintsRef={desktopRef}
+            className="!top-40 max-w-[calc(100%-1rem)]"
+          >
+            <Contact />
+          </Window>
+        )}
         {openWindows.includes("about") && (
           <Window
             key="about"
