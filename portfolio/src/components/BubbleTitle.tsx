@@ -1,3 +1,5 @@
+import { motion, useReducedMotion } from "motion/react";
+
 // Hand-drawn vector lettering stays crisp at every screen size.
 const letters = [
   { x: 25, path: "M5 28 Q32 24 61 28 M33 30 Q30 66 33 110", shine: "M7 20 Q24 17 39 19" },
@@ -11,9 +13,14 @@ const letters = [
 ];
 
 export default function BubbleTitle() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <h1 className="pointer-events-none absolute inset-0 flex select-none items-center justify-center px-5" aria-label="Titan Lam">
-      <svg aria-hidden="true" viewBox="0 0 865 150" className="h-auto w-full max-w-4xl overflow-visible">
+      <motion.svg
+        animate={{ y: reduceMotion ? 0 : [0, -8, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+        aria-hidden="true" viewBox="0 0 865 150" className="h-auto w-full max-w-4xl overflow-visible">
         {letters.map((letter, index) => (
           <g key={index} transform={`translate(${letter.x} 5)`} fill="none" strokeLinecap="round" strokeLinejoin="round">
             <path d={letter.path} stroke="rgb(42 169 194 / 65%)" strokeWidth="60" />
@@ -21,7 +28,7 @@ export default function BubbleTitle() {
             <path d={letter.shine} stroke="rgb(255 255 255 / 85%)" strokeWidth="10" />
           </g>
         ))}
-      </svg>
+      </motion.svg>
     </h1>
   );
 }
