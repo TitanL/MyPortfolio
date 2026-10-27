@@ -16,9 +16,9 @@ export default function BubbleTitle() {
       <svg aria-hidden="true" viewBox="0 0 865 150" className="h-auto w-full max-w-4xl overflow-visible">
         {letters.map((letter, index) => (
           <g key={index} transform={`translate(${letter.x} 5)`} fill="none" strokeLinecap="round" strokeLinejoin="round">
-            <path d={letter.path} stroke="rgb(42 169 194 / 65%)" strokeWidth="36" />
-            <path d={letter.path} stroke="rgb(210 250 255 / 58%)" strokeWidth="29" />
-            <path d={letter.shine} stroke="rgb(255 255 255 / 85%)" strokeWidth="5" />
+            <path d={letter.path} stroke="rgb(42 169 194 / 65%)" strokeWidth="60" />
+            <path d={letter.path} stroke="rgb(210 250 255 / 58%)" strokeWidth="52" />
+            <path d={letter.shine} stroke="rgb(255 255 255 / 85%)" strokeWidth="10" />
           </g>
         ))}
       </svg>
