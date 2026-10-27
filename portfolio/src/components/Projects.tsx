@@ -40,8 +40,8 @@ export default function Projects() {
             )}
           </div>
           <div className="w-full space-y-2">
-            <h2 className="text-xl font-semibold">Project {number}</h2>
-            <p className="text-sm leading-relaxed">A short description of this project will go here.</p>
+            <h2 className="text-xl font-semibold">{number === 1 ? "Family of Slush" : `Project ${number}`}</h2>
+            <p className="text-sm leading-relaxed">{number === 1 ? "A front-end application to show group dynamics and individual personalities in a creative way!" : "A short description of this project will go here."}</p>
           </div>
         </article>
       ))}
