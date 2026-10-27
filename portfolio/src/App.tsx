@@ -5,6 +5,7 @@ import FolderIcon from "./components/FolderIcon";
 import Projects from "./components/Projects";
 import SkillBubbles from "./components/SkillBubbles";
 import Contact from "./components/Contact";
+import BubbleTitle from "./components/BubbleTitle";
 
 type WindowId = "about" | "projects" | "contact";
 
@@ -28,6 +29,7 @@ export default function App() {
       ref={desktopRef}
       className="relative h-full w-full overflow-hidden bg-ocean-400"
     >
+      <BubbleTitle />
       {/* folder shortcuts down the side */}
       <nav aria-label="Desktop folders" className="absolute right-4 top-6 z-50 flex flex-col gap-4">
         <FolderIcon label="About me" onClick={() => bringToFront("about")} />
