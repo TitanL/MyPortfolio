@@ -44,7 +44,7 @@ export default function App() {
             onFocus={() => bringToFront("contact")}
             zIndex={openWindows.indexOf("contact") + 1}
             constraintsRef={desktopRef}
-            className="!top-40 max-w-[calc(100%-1rem)]"
+            className="!left-auto !right-6 !top-auto !bottom-6 !ml-0 max-w-[calc(100%-3rem)]"
           >
             <Contact />
           </Window>
