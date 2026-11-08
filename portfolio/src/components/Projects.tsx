@@ -1,4 +1,5 @@
 import project1Preview from "../assets/Project1Preview.png";
+import project2Preview from "../assets/Project2.gif";
 
 const projects = [1, 2, 3];
 
@@ -15,6 +16,14 @@ export default function Projects() {
               <img
                 src={project1Preview}
                 alt="Project 1: illustrated slush mixer with fruit flavors, a layered drink, and a receipt"
+                className="h-auto w-full rounded border border-ocean-200"
+                loading="lazy"
+                decoding="async"
+              />
+            ) : number === 2 ? (
+              <img
+                src={project2Preview}
+                alt="Animated preview of the 3D modeling expertise-sharing application, showing Apprentice and Game Master screens"
                 className="h-auto w-full rounded border border-ocean-200"
                 loading="lazy"
                 decoding="async"
