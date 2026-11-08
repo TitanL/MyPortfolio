@@ -41,7 +41,7 @@ export default function Projects() {
           </div>
           <div className="w-full space-y-2">
             <h2 className="text-xl font-semibold">{number === 1 ? "Family of Slush" : `Project ${number}`}</h2>
-            <p className="text-sm leading-relaxed">{number === 1 ? "A front-end application to show group dynamics and individual personalities in a creative way! Worked on the design of my button and the slush lever. Both have animations and are hand-drawn." : "A short description of this project will go here."}</p>
+            <p className="text-sm leading-relaxed">{number === 1 ? "A front-end application to show group dynamics and individual personalities in a creative way! Worked on the design of my button and the slush lever. Both have animations and are hand-drawn." : number === 2 ? "An application to show expertise sharing of 3D modeling between a game master and apprentice in a creative way - using embodied input/output! Designed the look of the application on Figma and developed the level selection screen." : "A short description of this project will go here."}</p>
           </div>
         </article>
       ))}
