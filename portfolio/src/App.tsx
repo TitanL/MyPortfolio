@@ -24,6 +24,14 @@ export default function App() {
     setOpenWindows((windows) => windows.filter((window) => window !== id));
   }
 
+  function toggleWindow(id: WindowId) {
+    setOpenWindows((windows) =>
+      windows.includes(id)
+        ? windows.filter((window) => window !== id)
+        : [...windows, id],
+    );
+  }
+
   return (
     <div
       ref={desktopRef}
@@ -32,9 +40,9 @@ export default function App() {
       <BubbleTitle />
       {/* folder shortcuts down the side */}
       <nav aria-label="Desktop folders" className="absolute right-4 top-6 z-50 flex flex-col gap-4">
-        <FolderIcon label="About me" onClick={() => bringToFront("about")} />
-        <FolderIcon label="Projects" onClick={() => bringToFront("projects")} />
-        <FolderIcon label="Contact" onClick={() => bringToFront("contact")} />
+        <FolderIcon label="About me" isOpen={openWindows.includes("about")} onClick={() => toggleWindow("about")} />
+        <FolderIcon label="Projects" isOpen={openWindows.includes("projects")} onClick={() => toggleWindow("projects")} />
+        <FolderIcon label="Contact" isOpen={openWindows.includes("contact")} onClick={() => toggleWindow("contact")} />
       </nav>
 
       <AnimatePresence>
