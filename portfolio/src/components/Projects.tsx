@@ -34,7 +34,7 @@ const projects = [
   {
     id: 3,
     title: "K-BBQ Cooking Timer",
-    description: "A short description of this project will go here.",
+    description: "K-BBQ Cooking Timer, is an Arduino prototype that helps diners keep track of multiple meats on a shared Korean barbecue grill. Diners select a grill side and choose beef or chicken, and each side runs its own timer. An LCD shows the countdown, while color-coded LEDs cue diners when to flip the meat and when to take it off the grill. The goal was to make cooking at the table easier to manage so diners could spend more time enjoying the meal together.",
     repoUrl: "https://github.com/zakisalam223/CPSC581Project3",
     previewUrl: "https://www.youtube.com/watch?v=VABHzoFOO8U",
     preview: cookingTimerPhoto,
